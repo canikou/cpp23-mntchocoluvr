@@ -45,15 +45,16 @@ It includes a runnable executable, a reusable core library, a test suite, CI pip
 
 ## Development Prerequisites
 
-- Windows local workflow assumes MSYS2 UCRT64 at `C:/msys64/ucrt64`.
-- Required tools: `gcc`, `cmake`, `ninja`, `gdb`.
+- Windows local workflow assumes `gcc`, `cmake`, `ninja`, and `gdb` are available on `PATH`.
+- MSYS2 UCRT64 is recommended, but the repo does not require a hardcoded install directory. If CMake cannot find dependencies, set `CMAKE_PREFIX_PATH` or create a local `CMakeUserPresets.json`.
+- Useful machine-level tools for future maintenance: `rg`, `fd`, `jq`, `fzf`, `gh`, and Chocolatey/winget for installing missing CLI tools.
 - VS Code extensions:
   - `ms-vscode.cpptools`
   - `ms-vscode.cmake-tools`
 
 Notes on workflow assumptions:
 
-- Local presets (`debug`, `release`) are intentionally path-aware for your workstation.
+- Local presets (`debug`, `release`) are intentionally path-agnostic and use tools from `PATH`.
 - CI presets (`ci-debug`, `ci-release`, `ci-lint`) are path-agnostic for GitHub runners.
 
 ## Setup Steps
